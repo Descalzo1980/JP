@@ -28,8 +28,6 @@ struct PredatorDetail: View {
                                     color: .black, location: 1
                                 )], startPoint: .top, endPoint: .bottom)
                         }
-                    
-                    
                     Image(predator.image)
                         .resizable()
                         .scaledToFit()
@@ -43,9 +41,10 @@ struct PredatorDetail: View {
                         .font(.largeTitle)
                     
                     NavigationLink {
-                        Image(predator.image)
-                            .resizable()
-                            .scaledToFit()
+                        PredatorMap()
+//                        Image(predator.image)
+//                            .resizable()
+//                            .scaledToFit()
                         
                     } label: {
                         Map(position: $position) {
