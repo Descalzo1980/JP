@@ -31,7 +31,7 @@ struct ContentView: View {
                         MapCamera(
                             centerCoordinate:
                                 predator.location,
-                            distance: 30000
+                            distance: 1000
                         )))
                 } label: {
                     HStack {
