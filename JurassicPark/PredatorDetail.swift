@@ -34,9 +34,11 @@ struct PredatorDetail: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: geo.size.width / 1.5, height: geo.size.height / 3.7)
-                        .scaleEffect(x: -1)
-                        .shadow(color: .black, radius: 7)
-                        .offset(y: 20)
+                    NavigationLink(
+                        "Go to dino description", destination: ExtractedView(
+                            predator:  predator,width: geo.size.width, height: geo.size.height
+                        )
+                    )
                 }
                 VStack(alignment: .leading) {
                     Text(predator.name)
@@ -125,5 +127,26 @@ struct PredatorDetail: View {
                 distance: 30000
             )))
         .preferredColorScheme(.dark)
+    }
+}
+
+struct ExtractedView: View {
+    
+    let predator: ApexPredator
+    let width: CGFloat
+    let height: CGFloat
+    
+    var body: some View {
+        VStack {
+            Image(predator.image)
+                .resizable()
+                .scaledToFit()
+                .scaleEffect(x: -1)
+                .shadow(color: .white, radius: 10)
+            Text(predator.name)
+            ForEach(predator.movieScenes) { movie in
+                Text(movie.movie)
+            }
+        }
     }
 }
